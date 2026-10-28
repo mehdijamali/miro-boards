@@ -1,0 +1,282 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+<g id="f0" transform="translate(0,0)" data-frame="0 · Welcome">
+<rect data-type="frame" x="0" y="0" width="3840" height="2160" fill="#ffffff" data-title="0 · Welcome" />
+<text x="64" y="144" font-family="noto_sans" font-size="80" font-weight="bold" fill="#1a1a1a">Release Strategy Decision Meeting</text>
+<textArea x="64" y="192" width="3712" font-family="noto_sans" font-size="36" fill="#595959">BIC Claim Assistant · 29 October 2026 · Decide ADR003–ADR007 and the release team agreements</textArea>
+<rect x="64" y="320" width="1216" height="1216" rx="12" fill="#fff6b6" stroke="none" />
+<textArea x="96" y="352" width="1152" font-family="noto_sans" font-size="32" fill="#1a1a1a"><b>🎯 Goal</b><br/>Move 5 proposed ADRs to accepted or rejected, and agree how we work around a release.<br/><br/><b>Before the meeting (10 min)</b><br/>Read "Release candidates explained" on the wiki and put your concerns as orange stickies in 💬 CONCERNS on each ADR frame.<br/><br/><b>Agenda (30 min)</b><br/>0:00 · Why we are here (frames 0–1) · 3 min<br/>0:03 · ADR003 How do we release? · 6 min<br/>0:09 · ADR004 Tags, changelog, release notes · 4 min<br/>0:13 · ADR005 Preview environment · 4 min<br/>0:17 · ADR006 Hotfix process · 4 min<br/>0:21 · ADR007 Rollback · 4 min<br/>0:25 · Team agreements · 3 min<br/>0:28 · Results, owners, next steps · 2 min</textArea>
+<rect x="1344" y="320" width="1216" height="1216" rx="12" fill="#c6dcff" stroke="none" />
+<textArea x="1376" y="352" width="1152" font-family="noto_sans" font-size="32" fill="#1a1a1a"><b>🗳 How we vote (per ADR, 4 min)</b><br/>0. Before the meeting: orange stickies in 💬 CONCERNS<br/>1. 1 min: the owner recaps the proposal<br/>2. 2 min: discuss the concerns<br/>3. 1 min: vote with Miro Voting – 1 vote per decider<br/>✅ Accept   🟡 Accept with action points   ❌ Reject<br/>4. Passed = most deciders accept (✅ + 🟡) and nobody has a blocking reason. Blocking reasons are written down.<br/><br/>ADR003 gets 6 min: it has an extra sub-vote.<br/><br/>An accepted ADR does not change anymore; a new ADR supersedes it.<br/>Out of time? Result becomes 🟡 with action points. We move on.</textArea>
+<text x="2624" y="368" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">Colour legend</text>
+<rect data-type="sticky" x="2624" y="400" width="400" height="260" data-color="gray" data-content="Option (not proposed)" />
+<rect data-type="sticky" x="3056" y="400" width="400" height="260" data-color="green" data-content="⭐ Proposed option" />
+<rect data-type="sticky" x="2624" y="692" width="400" height="260" data-color="yellow" data-content="Proposal" />
+<rect data-type="sticky" x="3056" y="692" width="400" height="260" data-color="pink" data-content="Cost / negative consequence" />
+<rect data-type="sticky" x="2624" y="984" width="400" height="260" data-color="orange" data-content="Your concern or question" />
+<rect data-type="sticky" x="3056" y="984" width="400" height="260" data-color="violet" data-content="Action point" />
+<rect data-type="sticky" x="2624" y="1276" width="400" height="260" data-color="light_blue" data-content="Evidence / info" />
+<textArea x="2624" y="1568" width="1152" font-family="noto_sans" font-size="24" fill="#595959">📖 Wiki: Release and delivery → Decisions (ADR003–ADR007)<br/>📖 Pre-read: How releases work → Release candidates explained<br/>🎞 Presentation: docs/rfc/2026-10-15-release-strategy-presentation.html</textArea>
+<text x="64" y="1712" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">Deciders: BIC team – Engineers and PO</text>
+<rect data-type="sticky" x="64" y="1776" width="384" height="250" data-color="cyan" data-content="Maarten" />
+<rect data-type="sticky" x="480" y="1776" width="384" height="250" data-color="cyan" data-content="Gonzalo" />
+<rect data-type="sticky" x="896" y="1776" width="384" height="250" data-color="cyan" data-content="Mehdi" />
+<rect data-type="sticky" x="1312" y="1776" width="384" height="250" data-color="cyan" data-content="Ricardo Mayerhofer" />
+<rect data-type="sticky" x="1728" y="1776" width="384" height="250" data-color="cyan" data-content="Ricardo Campo" />
+<rect data-type="sticky" x="2144" y="1776" width="384" height="250" data-color="cyan" data-content="Gabriel" />
+<rect data-type="sticky" x="2560" y="1776" width="384" height="250" data-color="cyan" data-content="Thomas" />
+<rect data-type="sticky" x="2976" y="1776" width="384" height="250" data-color="cyan" data-content="Luciana" />
+<rect data-type="sticky" x="3392" y="1776" width="384" height="250" data-color="cyan" data-content="Advisor: QA" />
+</g>
+<g id="f1" transform="translate(4800,0)" data-frame="1 · The problem">
+<rect data-type="frame" x="0" y="0" width="3840" height="2160" fill="#ffffff" data-title="1 · The problem" />
+<text x="64" y="136" font-family="noto_sans" font-size="72" font-weight="bold" fill="#1a1a1a">Why we need to decide</text>
+<rect data-type="sticky" x="64" y="224" width="880" height="573" data-color="light_blue" data-content="&lt;b&gt;23 of 39&lt;/b&gt;&lt;br&gt;pipeline runs from main timed out at the ACC approval (mid-June – 15 Oct 2026).&lt;br&gt;Their changes only reached PRD if a later run rebuilt the same apps." />
+<rect data-type="sticky" x="1008" y="224" width="880" height="573" data-color="light_blue" data-content="&lt;b&gt;31 of 72&lt;/b&gt;&lt;br&gt;CD runs deployed a feature branch into the shared TST.&lt;br&gt;A fix/ branch reached ACC. A deploy/ branch reached PRD – its commit never reached main." />
+<rect data-type="sticky" x="1952" y="224" width="880" height="573" data-color="light_blue" data-content="&lt;b&gt;0 release tags&lt;/b&gt;&lt;br&gt;No changelog, no release notes.&lt;br&gt;k8s-deployments records the wrong commit: nobody can say quickly what runs in PRD." />
+<rect data-type="sticky" x="2896" y="224" width="880" height="573" data-color="light_blue" data-content="&lt;b&gt;No agreed hotfix or rollback process&lt;/b&gt;&lt;br&gt;Approving an older run silently deploys older images.&lt;br&gt;The ArgoCD rollback button does not stick." />
+<rect data-type="sticky" x="1984" y="861" width="512" height="334" data-color="green" data-content="Preview environment for feature branches (TST stays = main)" />
+<line id="c1" x1="576" y1="1359" x2="704" y2="1359" stroke="#313131" stroke-width="3" data-arrow="end" data-shape="straight" data-start="b1" data-end="b2" data-start-side="right" data-end-side="left" />
+<line id="c2" x1="1216" y1="1359" x2="1344" y2="1359" stroke="#313131" stroke-width="3" data-arrow="end" data-shape="straight" data-start="b2" data-end="b3" data-start-side="right" data-end-side="left" />
+<line id="c3" x1="1856" y1="1359" x2="1984" y2="1359" stroke="#313131" stroke-width="3" data-arrow="end" data-shape="straight" data-start="b3" data-end="b4" data-start-side="right" data-end-side="left" />
+<line id="c4" x1="2496" y1="1359" x2="2624" y2="1359" stroke="#313131" stroke-width="3" data-arrow="end" data-shape="straight" data-start="b4" data-end="b5" data-start-side="right" data-end-side="left" />
+<line id="c5" x1="3136" y1="1359" x2="3264" y2="1359" stroke="#313131" stroke-width="3" data-arrow="end" data-shape="straight" data-start="b5" data-end="b6" data-start-side="right" data-end-side="left" />
+<rect id="b1" x="64" y="1259" width="512" height="200" rx="24" fill="#c6dcff" stroke="none" data-content="Pull request" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<rect id="b2" x="704" y="1259" width="512" height="200" rx="24" fill="#c6dcff" stroke="none" data-content="main" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<rect id="b3" x="1344" y="1259" width="512" height="200" rx="24" fill="#c6dcff" stroke="none" data-content="Release candidate (RC)" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<rect id="b4" x="1984" y="1259" width="512" height="200" rx="24" fill="#c6dcff" stroke="none" data-content="TST" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<rect id="b5" x="2624" y="1259" width="512" height="200" rx="24" fill="#c6dcff" stroke="none" data-content="ACC" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<rect id="b6" x="3264" y="1259" width="512" height="200" rx="24" fill="#c6dcff" stroke="none" data-content="PRD" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<rect data-type="sticky" x="1344" y="1523" width="512" height="334" data-color="yellow" data-content="RC = the version of every app + CDK stacks + WSO2 config, built from one commit of main. Build once, promote everywhere." />
+<rect data-type="sticky" x="3264" y="1523" width="512" height="334" data-color="yellow" data-content="Tag release/YYYY.MM.DD + changelog + release notes" />
+<textArea x="2176" y="1921" width="1600" font-family="noto_sans" font-size="32" fill="#1a1a1a"><b>Today we decide 5 things:</b><br/>ADR003 How we release · ADR004 How we mark releases<br/>ADR005 Where we test branches · ADR006 Hotfixes · ADR007 Rollback</textArea>
+</g>
+<g id="f2" transform="translate(9600,0)" data-frame="2 · ADR003 Release candidates">
+<rect data-type="frame" x="0" y="0" width="3840" height="2160" fill="#ffffff" data-title="2 · ADR003 Release candidates" />
+<text x="64" y="136" font-family="noto_sans" font-size="72" font-weight="bold" fill="#1a1a1a">ADR003 · Promote release candidates to PRD</text>
+<textArea x="64" y="184" width="3200" font-family="noto_sans" font-size="36" fill="#595959">How do we release – so nothing merged is missed, nothing goes back by accident, and we know what is in PRD?</textArea>
+<rect data-type="custom-widget" data-widget-type="action_button" data-action="countdown" data-duration="06:00" x="3492" y="64" fill="none" stroke="none" />
+<rect data-type="custom-widget" data-widget-type="action_button" data-action="voting" x="3650" y="64" fill="none" stroke="none" />
+<rect x="64" y="288" width="1440" height="1524" rx="12" fill="#f7f7f7" stroke="none" />
+<text x="96" y="352" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">OPTIONS</text>
+<rect data-type="sticky" x="96" y="384" width="437" height="284" data-color="gray" data-content="&lt;b&gt;A. Keep the current process&lt;/b&gt;&lt;br&gt;Approve the right runs, re-run what was missed.&lt;br&gt;✗ Changes still missed  ✗ Old approvals can roll PRD back" />
+<rect data-type="sticky" x="565" y="384" width="437" height="284" data-color="gray" data-content="&lt;b&gt;B. Since the last release tag&lt;/b&gt;&lt;br&gt;Tag every PRD release; CI builds everything changed since that tag (Score team does this).&lt;br&gt;✓ Small, proven  ✗ Old approvals can still deploy older images  ✗ Rollback = rebuild" />
+<rect data-type="sticky" x="1034" y="384" width="437" height="284" data-color="green" data-content="&lt;b&gt;⭐ C. Release candidates&lt;/b&gt;&lt;br&gt;Every merge to main publishes an RC: version of every app + CDK + WSO2. Promote TST → ACC → PRD.&lt;br&gt;✓ Meets all 5 decision drivers" />
+<rect data-type="sticky" x="96" y="700" width="437" height="284" data-color="gray" data-content="&lt;b&gt;D. Release branches&lt;/b&gt;&lt;br&gt;✗ Branch overhead and merge-back mistakes&lt;br&gt;✗ Conflicts with trunk-based development and NX affected" />
+<rect data-type="sticky" x="565" y="700" width="437" height="284" data-color="gray" data-content="&lt;b&gt;E. Always build and deploy everything&lt;/b&gt;&lt;br&gt;✗ Every release restarts every app&lt;br&gt;✗ PRD gets images ACC did not test" />
+<rect data-type="sticky" x="1034" y="700" width="437" height="284" data-color="gray" data-content="&lt;b&gt;F. A pipeline per app&lt;/b&gt;&lt;br&gt;✗ 5 apps × 3 environments = 15 approvals&lt;br&gt;✗ Portal + BFF and ingestion + CDK need manual coordination" />
+<foreignObject x="96" y="1048" width="1353" height="387" data-type="table" data-title="Options compared" data-scale="0.8"><table><thead><tr><th data-role="title">Decision driver</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr></thead><tbody><tr><td>No missed changes</td><td>✗</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>~</td></tr><tr><td>No accidental rollback</td><td>✗</td><td>~</td><td>✓</td><td>✓</td><td>~</td><td>~</td></tr><tr><td>Know what is in PRD</td><td>✗</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>~</td></tr><tr><td>Fast rollback</td><td>✗</td><td>~</td><td>✓</td><td>~</td><td>~</td><td>✓</td></tr><tr><td>Same image in ACC and PRD</td><td>~</td><td>~</td><td>✓</td><td>~</td><td>✗</td><td>✓</td></tr><tr><td>Only changed apps restart</td><td>~</td><td>~</td><td>✓</td><td>✓</td><td>✗</td><td>✓</td></tr><tr><td>Effort</td><td>none</td><td>S</td><td>M</td><td>M</td><td>S</td><td>L</td></tr><tr><td>Daily overhead</td><td>high</td><td>low</td><td>low</td><td>high</td><td>low</td><td>high</td></tr></tbody></table></foreignObject>
+<text x="1568" y="352" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">PROPOSAL</text>
+<rect x="1568" y="384" width="1088" height="852" rx="12" fill="#fff6b6" stroke="none" />
+<textArea x="1600" y="416" width="1024" font-family="noto_sans" font-size="28" fill="#1a1a1a"><b>Proposal: C. Release candidates</b><br/>• An RC = the version of every app + CDK stacks + WSO2 config, from one commit of main<br/>• CD compares the RC with the environment and only updates what differs<br/>• A guard refuses an older RC, unless it is a deliberate rollback (ROLLBACK=true)<br/>• Build once: the image tested in ACC is the image in PRD<br/>• Rollback = promote the previous RC (see ADR007)<br/>• Interim if we want the smallest first step: B (its release tag step is reused by C)<br/><br/><b>📏 Rule that comes with it:</b><br/>Only merge to main what may go to PRD with the next release.<br/>Unfinished work stays in its PR (show it in the preview environment).</textArea>
+<text x="1568" y="1300" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">COSTS</text>
+<rect data-type="sticky" x="1568" y="1332" width="320" height="208" data-color="pink" data-content="Pipeline work: RC manifest in CI, comparison + guard in CD, all CDK stacks and WSO2 per RC" />
+<rect data-type="sticky" x="1920" y="1332" width="320" height="208" data-color="pink" data-content="Keep the last 5 PRD RCs: pipeline runs, images, artifacts" />
+<rect data-type="sticky" x="2272" y="1332" width="320" height="208" data-color="pink" data-content="New concept for the team" />
+<rect data-type="sticky" x="1568" y="1572" width="320" height="208" data-color="pink" data-content="main must stay releasable – we cannot leave one merged change out" />
+<rect data-type="sticky" x="1920" y="1572" width="320" height="208" data-color="pink" data-content="To check: republishing unchanged WSO2 config is harmless; cdk deploy --all stays fast enough (incl. cross-account Felet Lambda)" />
+<rect x="2720" y="288" width="1056" height="1524" rx="12" fill="#fff5ed" stroke="#fe9f4d" stroke-width="2" />
+<text x="2752" y="352" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">💬 CONCERNS</text>
+<textArea x="2752" y="376" width="992" font-family="noto_sans" font-size="24" fill="#595959">Before the meeting: add an orange sticky (N), one concern or question per sticky. Put your initials on it.</textArea>
+<text x="64" y="2010" font-family="noto_sans" font-size="48" font-weight="bold" fill="#1a1a1a">🗳 VOTE</text>
+<rect x="352" y="1892" width="720" height="188" rx="24" fill="#adf0c7" stroke="none" data-content="✅ Accept" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<rect x="1104" y="1892" width="720" height="188" rx="24" fill="#fff6b6" stroke="none" data-content="🟡 Accept with action points" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<rect x="1856" y="1892" width="720" height="188" rx="24" fill="#ffc6c6" stroke="none" data-content="❌ Reject" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<line data-type="divider" x1="2640" y1="1876" x2="2640" y2="2096" stroke="#b0b0b0" stroke-width="2" />
+<text x="2704" y="1924" font-family="noto_sans" font-size="28" font-weight="bold" fill="#1a1a1a">Sub-vote: how do we start?</text>
+<rect x="2704" y="1956" width="520" height="128" rx="24" fill="#c6dcff" stroke="none" data-content="🚀 Go straight to C" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="28" data-font-weight="bold" />
+<rect x="3256" y="1956" width="520" height="128" rx="24" fill="#c6dcff" stroke="none" data-content="🪜 B first as interim, then C" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="28" data-font-weight="bold" />
+</g>
+<g id="f3" transform="translate(14400,0)" data-frame="3 · ADR004 Tags and changelog">
+<rect data-type="frame" x="0" y="0" width="3840" height="2160" fill="#ffffff" data-title="3 · ADR004 Tags and changelog" />
+<text x="64" y="136" font-family="noto_sans" font-size="72" font-weight="bold" fill="#1a1a1a">ADR004 · Tag PRD releases and generate the changelog</text>
+<textArea x="64" y="184" width="3200" font-family="noto_sans" font-size="36" fill="#595959">How do we mark a PRD release, and how do approvers and users learn what is in it?</textArea>
+<rect data-type="custom-widget" data-widget-type="action_button" data-action="countdown" data-duration="04:00" x="3492" y="64" fill="none" stroke="none" />
+<rect data-type="custom-widget" data-widget-type="action_button" data-action="voting" x="3650" y="64" fill="none" stroke="none" />
+<rect x="64" y="288" width="1440" height="1524" rx="12" fill="#f7f7f7" stroke="none" />
+<text x="96" y="352" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">OPTIONS</text>
+<text x="96" y="416" font-family="noto_sans" font-size="28" font-weight="bold" fill="#595959">Release marker</text>
+<rect data-type="sticky" x="96" y="440" width="437" height="284" data-color="green" data-content="&lt;b&gt;⭐ M1. Date tag (CalVer)&lt;/b&gt;&lt;br&gt;release/2026.10.20 – hotfix release/2026.10.20.1&lt;br&gt;✓ Everyone understands &quot;the release of 20 October&quot;  ✓ Easy to automate" />
+<rect data-type="sticky" x="565" y="440" width="437" height="284" data-color="gray" data-content="&lt;b&gt;M2. Semantic version (nx release) – v1.4.0&lt;/b&gt;&lt;br&gt;✗ Needs strict commit discipline + release commit  ✗ &quot;Major&quot; is hard to define for a UI" />
+<rect data-type="sticky" x="1034" y="440" width="437" height="284" data-color="gray" data-content="&lt;b&gt;M3. Build id only (549747)&lt;/b&gt;&lt;br&gt;✗ Identifies one pipeline run, not a release" />
+<rect data-type="sticky" x="96" y="756" width="437" height="284" data-color="gray" data-content="&lt;b&gt;M4. No marker, pipeline history&lt;/b&gt;&lt;br&gt;✗ Invisible in Git, disappears with run retention" />
+<text x="96" y="1104" font-family="noto_sans" font-size="28" font-weight="bold" fill="#595959">Changelog and release notes</text>
+<rect data-type="sticky" x="96" y="1128" width="437" height="284" data-color="gray" data-content="&lt;b&gt;C1. CHANGELOG.md in the repo&lt;/b&gt;&lt;br&gt;✗ Pipeline must push to main (policy bypass) or a release PR" />
+<rect data-type="sticky" x="565" y="1128" width="437" height="284" data-color="green" data-content="&lt;b&gt;⭐ C2. Changelog in the pipeline, before approval&lt;/b&gt;&lt;br&gt;✓ Approvers see what they approve  ✓ Pipeline does not write to main" />
+<rect data-type="sticky" x="1034" y="1128" width="437" height="284" data-color="green" data-content="&lt;b&gt;⭐ C3. Release notes on the wiki, by the PO&lt;/b&gt;&lt;br&gt;✓ Written for people, can link ServiceNow change, tests, stories" />
+<rect data-type="sticky" x="96" y="1444" width="437" height="284" data-color="green" data-content="&lt;b&gt;⭐ C4. Draft from linked work items (helper for C3)&lt;/b&gt;&lt;br&gt;Only as good as PR ↔ work item linking" />
+<rect data-type="sticky" x="565" y="1444" width="437" height="284" data-color="gray" data-content="&lt;b&gt;C5. A change file per PR (changesets)&lt;/b&gt;&lt;br&gt;✗ Friction for every PR, little gain at our size" />
+<rect data-type="sticky" x="1034" y="1444" width="437" height="284" data-color="light_blue" data-content="Since 15 April 2026: 78 PRs merged, 60 (77%) follow Conventional Commits.&lt;br&gt;The biggest features do not, e.g. &quot;Feature: Implement Automatic Summary 2.0&quot;." />
+<text x="1568" y="352" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">PROPOSAL</text>
+<rect x="1568" y="384" width="1088" height="852" rx="12" fill="#fff6b6" stroke="none" />
+<textArea x="1600" y="416" width="1024" font-family="noto_sans" font-size="28" fill="#1a1a1a"><b>Proposal: M1 + C2 + C3 (C4 pre-fills the notes)</b><br/>• Annotated tag release/YYYY.MM.DD[.N], placed by the pipeline after a successful PRD deployment<br/>• Tags are never moved or deleted (pipeline has "Create tag" only, no force push)<br/>• Changelog with nx release changelog --dry-run, shown in the CD run before ACC approval, starting from the commit PRD runs (not simply the newest tag – matters after a rollback)<br/>• The PO writes short release notes on the wiki per PRD release (template ready)<br/>• PR titles must follow  type(#ticket): description  – checked by the PR pipeline<br/>• First tag: release/2026.09.30 on 384f0878 (what PRD runs today)</textArea>
+<text x="1568" y="1300" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">COSTS</text>
+<rect data-type="sticky" x="1568" y="1332" width="320" height="208" data-color="pink" data-content="PR title check = a new rule for every PR" />
+<rect data-type="sticky" x="1920" y="1332" width="320" height="208" data-color="pink" data-content="Release notes = a new task for the PO every release" />
+<rect data-type="sticky" x="2272" y="1332" width="320" height="208" data-color="pink" data-content="Changelog is not a file in the repo (C1 can be added later)" />
+<rect x="2720" y="288" width="1056" height="1524" rx="12" fill="#fff5ed" stroke="#fe9f4d" stroke-width="2" />
+<text x="2752" y="352" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">💬 CONCERNS</text>
+<textArea x="2752" y="376" width="992" font-family="noto_sans" font-size="24" fill="#595959">Before the meeting: add an orange sticky (N), one concern or question per sticky. Put your initials on it.</textArea>
+<text x="64" y="2010" font-family="noto_sans" font-size="48" font-weight="bold" fill="#1a1a1a">🗳 VOTE</text>
+<rect x="352" y="1892" width="720" height="188" rx="24" fill="#adf0c7" stroke="none" data-content="✅ Accept" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<rect x="1104" y="1892" width="720" height="188" rx="24" fill="#fff6b6" stroke="none" data-content="🟡 Accept with action points" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<rect x="1856" y="1892" width="720" height="188" rx="24" fill="#ffc6c6" stroke="none" data-content="❌ Reject" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+</g>
+<g id="f4" transform="translate(19200,0)" data-frame="4 · ADR005 Preview environment">
+<rect data-type="frame" x="0" y="0" width="3840" height="2160" fill="#ffffff" data-title="4 · ADR005 Preview environment" />
+<text x="64" y="136" font-family="noto_sans" font-size="72" font-weight="bold" fill="#1a1a1a">ADR005 · Test feature branches in a preview environment</text>
+<textArea x="64" y="184" width="3200" font-family="noto_sans" font-size="36" fill="#595959">Where do developers, UX and the PO try unfinished work, while TST, ACC and PRD only get main?</textArea>
+<rect data-type="custom-widget" data-widget-type="action_button" data-action="countdown" data-duration="04:00" x="3492" y="64" fill="none" stroke="none" />
+<rect data-type="custom-widget" data-widget-type="action_button" data-action="voting" x="3650" y="64" fill="none" stroke="none" />
+<rect x="64" y="288" width="1440" height="1524" rx="12" fill="#f7f7f7" stroke="none" />
+<text x="96" y="352" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">OPTIONS</text>
+<rect data-type="sticky" x="96" y="384" width="437" height="284" data-color="light_blue" data-content="31 of 72 CD runs put a feature branch in TST.&lt;br&gt;A fix/ branch reached ACC; a deploy/ branch reached PRD." />
+<rect data-type="sticky" x="565" y="384" width="437" height="284" data-color="gray" data-content="&lt;b&gt;E1. TST etiquette&lt;/b&gt;&lt;br&gt;Book TST in the channel, deploy main back afterwards&lt;br&gt;✓ Free  ✗ People forget – TST still differs from main" />
+<rect data-type="sticky" x="1034" y="384" width="437" height="284" data-color="green" data-content="&lt;b&gt;⭐ E2. Preview environment in TST&lt;/b&gt;&lt;br&gt;bic-claim-assistant-web-preview + bic-claim-assistant-api-preview, deployed from any branch by a manual pipeline (same as bic-portal-preview)&lt;br&gt;✓ TST stays = main  ✓ Stable address for UX and PO  ✓ No Cloud Platform Team review needed" />
+<rect data-type="sticky" x="96" y="700" width="437" height="284" data-color="gray" data-content="&lt;b&gt;E3. New DEV environment&lt;/b&gt;&lt;br&gt;✓ Full isolation  ✗ Needs Cloud Platform Team, AWS, secrets, WSO2  ✗ AI Brain / FELET may have no DEV" />
+<rect data-type="sticky" x="565" y="700" width="437" height="284" data-color="gray" data-content="&lt;b&gt;E4. Environment per PR&lt;/b&gt;&lt;br&gt;✗ Lots of Cloud Platform Team work, wildcard DNS + TLS  ✗ Azure AD discourages wildcard redirect URIs" />
+<text x="1568" y="352" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">PROPOSAL</text>
+<rect x="1568" y="384" width="1088" height="852" rx="12" fill="#fff6b6" stroke="none" />
+<textArea x="1600" y="416" width="1024" font-family="noto_sans" font-size="28" fill="#1a1a1a"><b>Proposal: E2. Preview environment in TST</b><br/>Together with it:<br/>• Branch control on ACC and PRD: only main and hotfix/*<br/>• The CD pipeline starts automatically only for main (and hotfix/*)<br/>• TST is always main → acceptance in TST means something<br/>• We revisit DEV or per-PR environments if one preview is not enough</textArea>
+<text x="1568" y="1300" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">COSTS</text>
+<rect data-type="sticky" x="1568" y="1332" width="320" height="208" data-color="pink" data-content="One branch at a time – the team agrees who uses it" />
+<rect data-type="sticky" x="1920" y="1332" width="320" height="208" data-color="pink" data-content="Portal + BFF only: CDK and Lambda changes still share TST" />
+<rect data-type="sticky" x="2272" y="1332" width="320" height="208" data-color="pink" data-content="Setup: preview pipeline, 2 apps in k8s-deployments, Azure AD redirect URI + API_BASE_URL" />
+<rect x="2720" y="288" width="1056" height="1524" rx="12" fill="#fff5ed" stroke="#fe9f4d" stroke-width="2" />
+<text x="2752" y="352" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">💬 CONCERNS</text>
+<textArea x="2752" y="376" width="992" font-family="noto_sans" font-size="24" fill="#595959">Before the meeting: add an orange sticky (N), one concern or question per sticky. Put your initials on it.</textArea>
+<text x="64" y="2010" font-family="noto_sans" font-size="48" font-weight="bold" fill="#1a1a1a">🗳 VOTE</text>
+<rect x="352" y="1892" width="720" height="188" rx="24" fill="#adf0c7" stroke="none" data-content="✅ Accept" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<rect x="1104" y="1892" width="720" height="188" rx="24" fill="#fff6b6" stroke="none" data-content="🟡 Accept with action points" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<rect x="1856" y="1892" width="720" height="188" rx="24" fill="#ffc6c6" stroke="none" data-content="❌ Reject" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+</g>
+<g id="f5" transform="translate(0,2800)" data-frame="5 · ADR006 Hotfix process">
+<rect data-type="frame" x="0" y="0" width="3840" height="2160" fill="#ffffff" data-title="5 · ADR006 Hotfix process" />
+<text x="64" y="136" font-family="noto_sans" font-size="72" font-weight="bold" fill="#1a1a1a">ADR006 · Handle PRD incidents with a hotfix process</text>
+<textArea x="64" y="184" width="3200" font-family="noto_sans" font-size="36" fill="#595959">When is something a hotfix, and how do we get a fix to PRD fast without skipping safety or losing the fix?</textArea>
+<rect data-type="custom-widget" data-widget-type="action_button" data-action="countdown" data-duration="04:00" x="3492" y="64" fill="none" stroke="none" />
+<rect data-type="custom-widget" data-widget-type="action_button" data-action="voting" x="3650" y="64" fill="none" stroke="none" />
+<rect x="64" y="288" width="1440" height="1524" rx="12" fill="#f7f7f7" stroke="none" />
+<text x="96" y="352" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">OPTIONS</text>
+<rect data-type="sticky" x="96" y="384" width="437" height="284" data-color="green" data-content="&lt;b&gt;⭐ H1. Fix forward on main (default)&lt;/b&gt;&lt;br&gt;Urgent PR → new RC → promoted quickly&lt;br&gt;✓ Normal path, no merge back  ✗ Releases everything else on main too" />
+<rect data-type="sticky" x="565" y="384" width="437" height="284" data-color="green" data-content="&lt;b&gt;⭐ H2. Hotfix branch from the release tag (when main is not releasable)&lt;/b&gt;&lt;br&gt;hotfix/‹ticket› → RC → ACC → PRD → tag release/‹date›.1 → merge back the same day (Score team does this)&lt;br&gt;✓ Only the fix goes to PRD  ✗ Needs merge-back discipline" />
+<rect data-type="sticky" x="1034" y="384" width="437" height="284" data-color="gray" data-content="&lt;b&gt;H3. Cherry-pick into a release branch&lt;/b&gt;&lt;br&gt;✗ We have no release branches (ADR003 option D)" />
+<rect data-type="sticky" x="96" y="700" width="437" height="284" data-color="green" data-content="&lt;b&gt;⭐ H4. Configuration only&lt;/b&gt;&lt;br&gt;Secrets via Key Vault; envVars, CPU, memory via an emergency/ branch in k8s-deployments&lt;br&gt;✓ Fastest, no build  ✗ Config only, not code" />
+<text x="96" y="1048" font-family="noto_sans" font-size="28" font-weight="bold" fill="#595959">Severity</text>
+<rect data-type="sticky" x="96" y="1072" width="437" height="284" data-color="red" data-content="&lt;b&gt;🔴 Sev 1&lt;/b&gt;&lt;br&gt;AI Portal down or claims cannot be opened; data of the wrong claim shown; personal data exposed; actively exploitable vulnerability&lt;br&gt;&lt;b&gt;→ Hotfix now. Roll back first if the last release caused it.&lt;/b&gt;" />
+<rect data-type="sticky" x="565" y="1072" width="437" height="284" data-color="orange" data-content="&lt;b&gt;🟠 Sev 2&lt;/b&gt;&lt;br&gt;Summary or timeline not loading for many users; event ingestion stopped; critical vulnerability with exposure&lt;br&gt;&lt;b&gt;→ Hotfix within the business day&lt;/b&gt;" />
+<rect data-type="sticky" x="1034" y="1072" width="437" height="284" data-color="gray" data-content="&lt;b&gt;⚪ Sev 3–4&lt;/b&gt;&lt;br&gt;Cosmetic issues, bugs with a workaround&lt;br&gt;&lt;b&gt;→ Normal fix in the next release&lt;/b&gt;" />
+<text x="1568" y="352" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">PROPOSAL</text>
+<rect x="1568" y="384" width="1088" height="852" rx="12" fill="#fff6b6" stroke="none" />
+<textArea x="1600" y="416" width="1024" font-family="noto_sans" font-size="28" fill="#1a1a1a"><b>Proposal: H1 by default · H2 when main is not releasable · H4 for configuration only</b><br/><br/><b>Rules</b><br/>• Last release &lt; 48 h ago caused it and rollback restores service? → Roll back first (ADR007), then fix calmly<br/>• Never skip ACC. At least 1 reviewer who is not the author<br/>• The Engineering Team declares the hotfix and severity; the PO approves PRD<br/>• Post in the team channel at start and end<br/>• Postmortem within 5 working days for Sev 1 and Sev 2<br/>• H2: open the merge-back PR to main at the start; complete it the same day with a normal merge (no squash)<br/>• No PRD release while a hotfix PR to main is still open</textArea>
+<text x="1568" y="1300" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">COSTS</text>
+<rect data-type="sticky" x="1568" y="1332" width="320" height="208" data-color="pink" data-content="CI and CD must accept hotfix/* branches; branch control must allow them" />
+<rect data-type="sticky" x="1920" y="1332" width="320" height="208" data-color="pink" data-content="Branch policy on main must allow a normal merge (no squash) for hotfix/* PRs" />
+<rect data-type="sticky" x="2272" y="1332" width="320" height="208" data-color="pink" data-content="Until CI uses the release tag as NX base, a hotfix must be one commit" />
+<rect data-type="sticky" x="1568" y="1572" width="320" height="208" data-color="pink" data-content="main must stay releasable for H1" />
+<rect x="2720" y="288" width="1056" height="1524" rx="12" fill="#fff5ed" stroke="#fe9f4d" stroke-width="2" />
+<text x="2752" y="352" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">💬 CONCERNS</text>
+<textArea x="2752" y="376" width="992" font-family="noto_sans" font-size="24" fill="#595959">Before the meeting: add an orange sticky (N), one concern or question per sticky. Put your initials on it.</textArea>
+<text x="64" y="2010" font-family="noto_sans" font-size="48" font-weight="bold" fill="#1a1a1a">🗳 VOTE</text>
+<rect x="352" y="1892" width="720" height="188" rx="24" fill="#adf0c7" stroke="none" data-content="✅ Accept" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<rect x="1104" y="1892" width="720" height="188" rx="24" fill="#fff6b6" stroke="none" data-content="🟡 Accept with action points" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<rect x="1856" y="1892" width="720" height="188" rx="24" fill="#ffc6c6" stroke="none" data-content="❌ Reject" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<rect data-type="sticky" x="3456" y="1876" width="320" height="208" data-color="gray" data-content="&lt;b&gt;Not in this ADR&lt;/b&gt;&lt;br&gt;Support outside office hours → management decision" />
+</g>
+<g id="f6" transform="translate(4800,2800)" data-frame="6 · ADR007 Rollback">
+<rect data-type="frame" x="0" y="0" width="3840" height="2160" fill="#ffffff" data-title="6 · ADR007 Rollback" />
+<text x="64" y="136" font-family="noto_sans" font-size="72" font-weight="bold" fill="#1a1a1a">ADR007 · Roll back by redeploying the previous release candidate</text>
+<textArea x="64" y="184" width="3200" font-family="noto_sans" font-size="36" fill="#595959">How do we go back to the previous release quickly, safely and visibly?</textArea>
+<rect data-type="custom-widget" data-widget-type="action_button" data-action="countdown" data-duration="04:00" x="3492" y="64" fill="none" stroke="none" />
+<rect data-type="custom-widget" data-widget-type="action_button" data-action="voting" x="3650" y="64" fill="none" stroke="none" />
+<rect x="64" y="288" width="1440" height="1524" rx="12" fill="#f7f7f7" stroke="none" />
+<text x="96" y="352" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">OPTIONS</text>
+<rect data-type="sticky" x="96" y="384" width="437" height="284" data-color="gray" data-content="&lt;b&gt;R1. Feature flag off&lt;/b&gt;&lt;br&gt;✓ Seconds, one feature only  ✗ We have no flags yet (US 441556) – does not replace rollback" />
+<rect data-type="sticky" x="565" y="384" width="437" height="284" data-color="green" data-content="&lt;b&gt;⭐ R2. Redeploy the previous RC&lt;/b&gt;&lt;br&gt;CD run for the previous RC with ROLLBACK=true&lt;br&gt;✓ Minutes, no rebuild  ✓ Apps + CDK + WSO2  ✓ Visible in history" />
+<rect data-type="sticky" x="1034" y="384" width="437" height="284" data-color="green" data-content="&lt;b&gt;⭐ R3. Rebuild from the previous release tag (until RCs exist)&lt;/b&gt;&lt;br&gt;&lt;i&gt;Interim&lt;/i&gt;&lt;br&gt;✓ Works today  ✗ Slow: build + 3 environments  ✗ New bits  ✗ Needs quick win N5 (deployProjects)" />
+<rect data-type="sticky" x="96" y="700" width="437" height="284" data-color="gray" data-content="&lt;b&gt;R4. ArgoCD rollback button&lt;/b&gt;&lt;br&gt;✗ ArgoCD reapplies Git immediately – does not stick  ✗ No audit trail" />
+<rect data-type="sticky" x="565" y="700" width="437" height="284" data-color="gray" data-content="&lt;b&gt;R5. Canary / blue-green (Argo Rollouts)&lt;/b&gt;&lt;br&gt;✓ Automatic  ✗ Not installed on the Cloud Platform Team clusters – future option" />
+<text x="1568" y="352" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">PROPOSAL</text>
+<rect x="1568" y="384" width="1088" height="852" rx="12" fill="#fff6b6" stroke="none" />
+<textArea x="1600" y="416" width="1024" font-family="noto_sans" font-size="28" fill="#1a1a1a"><b>Proposal: R2 by default · R3 until RCs exist · never R4 · no manual k8s-deployments changes</b><br/><br/>⚡ <b>Trigger:</b> Sev 1 within 48 h after a release · 5xx above 2% for 10 min in Splunk · failing health or smoke checks · security exposure<br/>👤 <b>Decision:</b> release captain or The Engineering Team, within 15 minutes; PO informed. Rollback stays a manual decision.<br/>🗄 <b>Retention:</b> keep the last 5 PRD RCs (runs, images, CDK + WSO2 artifacts). RCs that reached ACC get a 30-day retention lease.<br/>🔁 <b>Rehearsal:</b> a rollback drill in ACC every quarter.</textArea>
+<text x="1568" y="1300" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">COSTS</text>
+<rect data-type="sticky" x="1568" y="1332" width="320" height="208" data-color="pink" data-content="Needs release candidates first; until then R3 + quick win N5" />
+<rect data-type="sticky" x="1920" y="1332" width="320" height="208" data-color="pink" data-content="Secrets and values.json (envVars, CPU, memory) are not part of a release – revert them separately" />
+<rect data-type="sticky" x="2272" y="1332" width="320" height="208" data-color="pink" data-content="Artifactory / ECR lifecycle must keep at least 5 PRD versions (to confirm)" />
+<rect data-type="sticky" x="1568" y="1572" width="320" height="208" data-color="pink" data-content="A broken event ingestion version may need an event replay (US 390288)" />
+<rect data-type="sticky" x="1920" y="1572" width="320" height="208" data-color="pink" data-content="Replaced or deleted CDK resources cannot be restored – review the CDK diff in PRs" />
+<rect x="2720" y="288" width="1056" height="1524" rx="12" fill="#fff5ed" stroke="#fe9f4d" stroke-width="2" />
+<text x="2752" y="352" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">💬 CONCERNS</text>
+<textArea x="2752" y="376" width="992" font-family="noto_sans" font-size="24" fill="#595959">Before the meeting: add an orange sticky (N), one concern or question per sticky. Put your initials on it.</textArea>
+<text x="64" y="2010" font-family="noto_sans" font-size="48" font-weight="bold" fill="#1a1a1a">🗳 VOTE</text>
+<rect x="352" y="1892" width="720" height="188" rx="24" fill="#adf0c7" stroke="none" data-content="✅ Accept" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<rect x="1104" y="1892" width="720" height="188" rx="24" fill="#fff6b6" stroke="none" data-content="🟡 Accept with action points" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+<rect x="1856" y="1892" width="720" height="188" rx="24" fill="#ffc6c6" stroke="none" data-content="❌ Reject" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="36" data-font-weight="bold" />
+</g>
+<g id="f7" transform="translate(9600,2800)" data-frame="7 · Team agreements">
+<rect data-type="frame" x="0" y="0" width="3840" height="2160" fill="#ffffff" data-title="7 · Team agreements" />
+<text x="64" y="136" font-family="noto_sans" font-size="72" font-weight="bold" fill="#1a1a1a">Team agreements – not ADRs, quick polls</text>
+<textArea x="64" y="184" width="3200" font-family="noto_sans" font-size="36" fill="#595959">One vote per question. 5 votes in total. Unhappy with all options? Add an orange sticky next to the question.</textArea>
+<rect data-type="custom-widget" data-widget-type="action_button" data-action="countdown" data-duration="03:00" x="3492" y="64" fill="none" stroke="none" />
+<rect data-type="custom-widget" data-widget-type="action_button" data-action="voting" x="3650" y="64" fill="none" stroke="none" />
+<textArea x="64" y="384" width="832" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">1. How often do we release to PRD?</textArea>
+<rect x="960" y="352" width="512" height="168" rx="24" fill="#c6dcff" stroke="none" data-content="When valuable, at least once per sprint" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="24" />
+<rect x="1504" y="352" width="512" height="168" rx="24" fill="#c6dcff" stroke="none" data-content="A fixed day every sprint" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="24" />
+<rect x="2048" y="352" width="512" height="168" rx="24" fill="#c6dcff" stroke="none" data-content="Every week" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="24" />
+<line data-type="divider" x1="64" y1="536" x2="2560" y2="536" stroke="#e7e7e7" stroke-width="2" />
+<textArea x="64" y="616" width="832" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">2. Release window?</textArea>
+<rect x="960" y="584" width="512" height="168" rx="24" fill="#c6dcff" stroke="none" data-content="Office hours, not on Friday afternoon" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="24" />
+<rect x="1504" y="584" width="512" height="168" rx="24" fill="#c6dcff" stroke="none" data-content="Office hours, any day" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="24" />
+<line data-type="divider" x1="64" y1="768" x2="2560" y2="768" stroke="#e7e7e7" stroke-width="2" />
+<textArea x="64" y="848" width="832" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">3. Approvals?</textArea>
+<rect x="960" y="816" width="512" height="168" rx="24" fill="#c6dcff" stroke="none" data-content="ACC: 1 developer · PRD: release captain + PO (or The Engineering Team)" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="24" />
+<rect x="1504" y="816" width="512" height="168" rx="24" fill="#c6dcff" stroke="none" data-content="Something else (add a sticky)" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="24" />
+<line data-type="divider" x1="64" y1="1000" x2="2560" y2="1000" stroke="#e7e7e7" stroke-width="2" />
+<textArea x="64" y="1080" width="832" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">4. Release captain?</textArea>
+<rect x="960" y="1048" width="512" height="168" rx="24" fill="#c6dcff" stroke="none" data-content="1 developer per sprint, fixed rotation, also developer on duty" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="24" />
+<rect x="1504" y="1048" width="512" height="168" rx="24" fill="#c6dcff" stroke="none" data-content="Something else (add a sticky)" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="24" />
+<line data-type="divider" x1="64" y1="1232" x2="2560" y2="1232" stroke="#e7e7e7" stroke-width="2" />
+<textArea x="64" y="1312" width="832" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">5. May the person who started the run approve ACC?</textArea>
+<rect x="960" y="1280" width="512" height="168" rx="24" fill="#c6dcff" stroke="none" data-content="Yes – PRD always needs someone else" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="24" />
+<rect x="1504" y="1280" width="512" height="168" rx="24" fill="#c6dcff" stroke="none" data-content="No – ACC needs someone else too" data-text-color="#1a1a1a" data-font-family="noto_sans" data-font-size="24" />
+<foreignObject x="2624" y="352" width="1132" height="704" data-type="table" data-title="Release captain rotation" data-scale="2"><table><thead><tr><th data-role="title">Sprint</th><th>Release captain and developer on duty</th></tr></thead><tbody><tr><td>Sprint __</td><td></td></tr><tr><td>Sprint __</td><td></td></tr><tr><td>Sprint __</td><td></td></tr><tr><td>Sprint __</td><td></td></tr><tr><td>Sprint __</td><td></td></tr></tbody></table></foreignObject>
+<rect x="64" y="1576" width="2496" height="520" rx="12" fill="#f7f7f7" stroke="none" />
+<text x="96" y="1640" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">🚫 Not ours to decide today</text>
+<rect data-type="sticky" x="96" y="1672" width="560" height="364" data-color="gray" data-content="ServiceNow change for PRD releases: required or not? → PO confirms by ____" />
+<rect data-type="sticky" x="688" y="1672" width="560" height="364" data-color="gray" data-content="Support outside office hours (none / best effort / on call) → management decision" />
+</g>
+<g id="f8" transform="translate(14400,2800)" data-frame="8 · Parking lot">
+<rect data-type="frame" x="0" y="0" width="3840" height="2160" fill="#ffffff" data-title="8 · Parking lot" />
+<text x="64" y="136" font-family="noto_sans" font-size="72" font-weight="bold" fill="#1a1a1a">🅿️ Parking lot</text>
+<textArea x="64" y="184" width="3200" font-family="noto_sans" font-size="36" fill="#595959">Good questions that do not block a decision today. Each gets an owner before we close.</textArea>
+<rect x="64" y="320" width="1194" height="1776" rx="12" fill="#f7f7f7" stroke="none" />
+<rect x="1322" y="320" width="1194" height="1776" rx="12" fill="#f7f7f7" stroke="none" />
+<rect x="2580" y="320" width="1196" height="1776" rx="12" fill="#f7f7f7" stroke="none" />
+<text x="96" y="384" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">Needs another team</text>
+<text x="1354" y="384" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">Needs more info</text>
+<text x="2612" y="384" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">Later / nice to have</text>
+<rect data-type="sticky" x="96" y="432" width="437" height="284" data-color="light_blue" data-content="Cloud Platform Team: image lifecycle in Artifactory / ECR keeps ≥ 5 PRD versions?" />
+<rect data-type="sticky" x="573" y="452" width="437" height="284" data-color="light_blue" data-content="Azure AD: redirect URI for the preview address" />
+<rect data-type="sticky" x="2612" y="432" width="437" height="284" data-color="gray" data-content="Feature flags (US 441556) – separate session" />
+<rect data-type="sticky" x="3089" y="452" width="437" height="284" data-color="gray" data-content="Canary / blue-green with Argo Rollouts" />
+<rect data-type="sticky" x="2622" y="768" width="437" height="284" data-color="gray" data-content="CHANGELOG.md in the repository (ADR004 C1)" />
+</g>
+<g id="f9" transform="translate(19200,2800)" data-frame="9 · Results">
+<rect data-type="frame" x="0" y="0" width="3840" height="2160" fill="#ffffff" data-title="9 · Results" />
+<text x="64" y="136" font-family="noto_sans" font-size="72" font-weight="bold" fill="#1a1a1a">Results – 29 October 2026</text>
+<text x="64" y="288" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">Decisions</text>
+<foreignObject x="64" y="320" width="1582" height="704" data-type="table" data-title="Decisions" data-scale="2"><table><thead><tr><th data-role="title">ADR</th><th>Result (✅ / 🟡 / ❌)</th><th>Votes ✅ / 🟡 / ❌</th></tr></thead><tbody><tr><td>ADR003 Release candidates</td><td></td><td></td></tr><tr><td>ADR004 Tags and changelog</td><td></td><td></td></tr><tr><td>ADR005 Preview environment</td><td></td><td></td></tr><tr><td>ADR006 Hotfix process</td><td></td><td></td></tr><tr><td>ADR007 Rollback</td><td></td><td></td></tr></tbody></table></foreignObject>
+<text x="64" y="1088" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">Team agreements</text>
+<foreignObject x="64" y="1120" width="1132" height="704" data-type="table" data-title="Team agreements" data-scale="2"><table><thead><tr><th data-role="title">Topic</th><th>Agreed</th></tr></thead><tbody><tr><td>Release frequency</td><td></td></tr><tr><td>Release window</td><td></td></tr><tr><td>Approvals</td><td></td></tr><tr><td>Release captain rotation</td><td></td></tr><tr><td>Requester may approve ACC</td><td></td></tr></tbody></table></foreignObject>
+<text x="2304" y="288" font-family="noto_sans" font-size="32" font-weight="bold" fill="#1a1a1a">Next work items</text>
+<rect data-type="sticky" x="2304" y="320" width="464" height="302" data-color="violet" data-content="Build the release candidate pipeline (runbook: Set up release candidates) – owner: __" />
+<rect data-type="sticky" x="2800" y="320" width="464" height="302" data-color="violet" data-content="Quick win N5: deployProjects parameter (needed for R3 rollback) – owner: __" />
+<rect data-type="sticky" x="3296" y="320" width="464" height="302" data-color="violet" data-content="Branch control on ACC + PRD: only main and hotfix/*; CD auto-start only for main – owner: __" />
+<rect data-type="sticky" x="2304" y="654" width="464" height="302" data-color="violet" data-content="Preview environment: pipeline + 2 apps in k8s-deployments + Azure AD redirect URI – owner: __" />
+<rect data-type="sticky" x="2800" y="654" width="464" height="302" data-color="violet" data-content="PR title check type(#ticket): description in the PR pipeline – owner: __" />
+<rect data-type="sticky" x="3296" y="654" width="464" height="302" data-color="violet" data-content="Create first tag release/2026.09.30 on 384f0878 – owner: __" />
+<rect data-type="sticky" x="2304" y="988" width="464" height="302" data-color="violet" data-content="Retention leases + image lifecycle (keep last 5 PRD RCs) – owner: __" />
+<rect data-type="sticky" x="2800" y="988" width="464" height="302" data-color="violet" data-content="CI/CD accept hotfix/* + branch policy normal merge for hotfix/* – owner: __" />
+<rect data-type="sticky" x="3296" y="988" width="464" height="302" data-color="violet" data-content="Plan the first rollback drill in ACC – owner: __" />
+<rect data-type="sticky" x="2304" y="1322" width="464" height="302" data-color="violet" data-content="Update ADR status and date on the wiki – owner: __" />
+</g>
+</svg>
